@@ -7,7 +7,7 @@ O objetivo é servir como material de apoio e consulta para futuras implementaç
 
 ## O que é o AWS Step Functions
 
-O AWS Step Functions é um serviço de orquestração visual** que permite criar e coordenar fluxos de trabalho compostos por múltiplos serviços da AWS, como Lambda, S3, DynamoDB, ECS, entre outros.
+O AWS Step Functions é um serviço de orquestração visual que permite criar e coordenar fluxos de trabalho compostos por múltiplos serviços da AWS, como Lambda, S3, DynamoDB, ECS, entre outros.
 
 Ele permite definir visualmente a sequência e as condições de execução das etapas (estados) de um processo, sem precisar escrever toda a lógica de controle no código.  
 A orquestração é feita através de diagramas visuais e arquivos de definição no formato JSON, usando a Amazon States Language (ASL).
