@@ -1,6 +1,6 @@
 # Desafio-AWS-Step-Functions
 
-Este repositório reúne minhas anotações, insights e exemplos sobre o AWS Step Functions, realizados durante o Bootcamp Santander Code Girls 2025.  
+Este repositório reúne minhas anotações e insights sobre o AWS Step Functions, realizados durante o Bootcamp Santander Code Girls 2025.  
 O objetivo é servir como material de apoio e consulta para futuras implementações e estudos relacionados à orquestração de fluxos de trabalho na nuvem AWS.
 
 ---
