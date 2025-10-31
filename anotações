@@ -1,0 +1,123 @@
+# AWS Step Functions
+
+O AWS Step Functions é um serviço totalmente gerenciado da Amazon Web Services (AWS) projetado para orquestrar fluxos de trabalho compostos por múltiplos serviços.  
+Ele permite que desenvolvedores criem e coordenem processos complexos de maneira visual, escalável e tolerante a falhas, sem a necessidade de gerenciar servidores ou escrever código extenso de controle de fluxo.
+
+O Step Functions é especialmente útil em arquiteturas serverless e baseadas em microserviços, integrando-se com serviços como AWS Lambda, Amazon S3, DynamoDB, SNS, SQS, ECS, Glue, Batch, entre outros.
+
+Em resumo, o Step Functions atua como o orquestrador de processos na nuvem AWS.
+
+---
+
+## 2. Conceito de Máquina de Estados (State Machine)
+
+No AWS Step Functions, um fluxo de trabalho é definido como uma máquina de estados, composta por estados (etapas) e transições.  
+Esses estados representam tarefas, decisões, esperas, ramificações ou encerramentos.
+
+A definição é feita usando a Amazon States Language (ASL), um formato baseado em JSON, no qual cada estado tem um tipo e propriedades específicas.
+
+Fluxo básico de execução:
+1. Inicia em um estado definido por StartAt.
+2. Cada estado executa uma ação.
+3. O resultado é passado para o próximo estado via Next, Choice ou End.
+4. A execução termina quando um estado com End: true é atingido.
+
+---
+
+## 3. Tipos de Estados
+
+### 3.1 Task State
+Executa uma tarefa única, como chamar uma função Lambda ou outro serviço AWS.
+
+3.2 Choice State
+Permite tomar decisões condicionais, como um if/else.
+
+3.3 Wait State
+Adiciona um atraso (delay) na execução.
+
+3.4 Parallel State
+Executa várias tarefas em paralelo.
+
+3.5 Fail e Succeed States
+
+## 4. Tipos de Workflows
+
+4.1 Standard Workflow
+Armazena o histórico completo de cada execução. Ideal para processos longos e complexos.	
+Duração máxima: Até 1 ano 
+Recomendado para pipelines de dados, processos de negócios
+
+4.2 Express Workflow	
+Execuções rápidas e de alta frequência com custo reduzido.	A
+Duração máxima até 5 minutos	
+Processamento em tempo real, automações
+
+## 5. Estrutura do Workflow (Amazon States Language)
+A definição é feita em JSON, seguindo o padrão da Amazon States Language.
+Exemplo no arquivo: Exemplo Choice State (JSONata)
+
+## 6. Integração com Outros Serviços AWS
+O Step Functions se conecta nativamente a dezenas de serviços da AWS.
+As integrações mais comuns incluem:
+
+- AWS Lambda: processamento de dados sem servidor
+
+- Amazon S3: leitura, escrita e verificação de arquivos
+
+- DynamoDB: consulta e gravação em tabelas NoSQL
+
+- SNS / SQS: comunicação assíncrona
+
+- AWS Glue / Athena: ETL e análise de dados
+
+- Amazon SageMaker: Machine Learning (treinamento e inferência)
+
+Essas conexões usam Service Integrations, permitindo chamadas diretas via API AWS sem código adicional.
+
+## 7. Monitoramento
+O Amazon CloudWatch é totalmente integrado ao Step Functions, permitindo monitorar:
+
+- Métricas de execução (sucesso, falha, tempo médio)
+
+- Logs detalhados de cada estado
+
+- Histórico de execução completo
+
+- Alarmes automáticos em caso de erro
+
+No console da AWS, cada etapa aparece com cores (verde = sucesso, vermelho = falha), facilitando a análise visual.
+
+O AWS X-Ray também pode ser usado para rastrear a performance das funções Lambda dentro dos fluxos.
+
+## 8. Casos de Uso Comuns
+
+Automação de Processos: coordenação de múltiplos microserviços.
+
+Pipelines de Dados (ETL): ingestão, transformação e armazenamento em S3/DynamoDB.
+
+Machine Learning: orquestração de treinamento e deploy de modelos SageMaker.
+
+Arquitetura Serverless: integração de APIs, filas e funções Lambda.
+
+Monitoramento e Alertas: automação de respostas a eventos CloudWatch.
+
+Processamento de Arquivos: validação e movimentação de arquivos entre buckets.
+
+## 9. Vantagens e Limitações
+Vantagens:
+- Totalmente gerenciado e escalável.
+
+- Interface visual intuitiva.
+
+- Integrações nativas com dezenas de serviços AWS.
+
+- Tratamento de falhas automático.
+
+- Histórico completo de execução.
+
+Limitações:
+- Custo maior em workflows longos (Standard).
+
+- Duração máxima limitada (1 ano Standard / 5 minutos Express).
+
+
